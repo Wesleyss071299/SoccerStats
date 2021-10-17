@@ -8,8 +8,11 @@ interface ILeagueButton {
 
 
 const LeagueButton: React.FC<ILeagueButton> = ({name, url}) => {
+  const getSatandings = () => {
+    console.log('oi')
+  }
   return (
-    <Container>
+    <Container onClick={getSatandings}>
       <Image src={url}/>
       <Text>{name}</Text>
     </Container>

@@ -29,6 +29,7 @@ const Home: React.FC = () => {
     fetchLeagues();
     fetchTeams();
   }, []);
+  
   return (
     <Container>
       <Header>

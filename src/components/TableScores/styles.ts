@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -17,27 +17,34 @@ export const Scores = styled.table`
   font-size: 20px;
   text-decoration: none;
   font-weight: 900;
+
   th:not(:nth-child(2)),
   td:not(:nth-child(2)) {
     min-width: 1rem;
     max-width: 4rem;
   }
   tr {
+    :nth-child(-n + 4) {
+      color: green;
+    }
+    :nth-last-child(-n + 4) {
+      color: red;
+    }
     th {
       color: #535353;
     }
     th:nth-child(3),
     td:nth-child(3) {
-      background: rgba(255, 255, 255, .1);
+      background: rgba(255, 255, 255, 0.1);
     }
   }
   tbody > tr {
     &:hover {
       background: #00fa9a !important;
-      color:#0e0e0e;
+      color: #0e0e0e;
     }
     &:nth-child(odd) {
-      background: rgba(255, 255, 255, .1);
+      background: rgba(255, 255, 255, 0.1);
     }
   }
 `;
