@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useCallback, useContext, useState } from "react";
 import { IResponseStanding, ITeam } from "../interfaces";
 import api from "../services/api";
 
@@ -17,11 +17,11 @@ const StandingContext = createContext<StandingContextData>(
 );
 
 export const StandingProvider: React.FC = ({ children }) => {
-  const [leagueId, setLeagueId] = useState("");
+  const [leagueId, setLeagueId] = useState("arg.1");
   const [loading, setLoading] = useState(false);
   const [teams, setTeams] = useState<ITeam[]>([]);
 
-  const fetchTeams = async () => {
+  const fetchTeams = useCallback(async () => {
     setLoading(true);
     try {
       const response: IResponseStanding = await api.get(
@@ -34,7 +34,7 @@ export const StandingProvider: React.FC = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [leagueId]);
 
   return (
     <StandingContext.Provider

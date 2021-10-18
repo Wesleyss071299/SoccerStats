@@ -47,4 +47,21 @@ export const Scores = styled.table`
       background: rgba(255, 255, 255, 0.1);
     }
   }
+
+  @media (max-width: 600px) {
+    td:nth-child(3) {
+      display: none;
+    }
+    th:nth-child(3) {
+      display: none;
+    }
+    td:nth-child(4) {
+      display: none;
+    }
+    th:nth-child(4) {
+      display: none;
+    }
+    font-size: 15px;
+    width: 85%;
+  }
 `;

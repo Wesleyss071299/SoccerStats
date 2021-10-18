@@ -5,6 +5,9 @@ export const Container = styled.div`
   width: 100%;
   align-items: center;
   justify-content: center;
+  @media (max-width: 600px) {
+    margin-top: 50px;
+  }
   div:nth-child(0) {
     animation-delay: 0s;
   }
@@ -49,4 +52,8 @@ export const Dot = styled.div`
   animation: scaling 2.5s ease-in-out infinite;
   display: inline-block;
   margin: 0.5rem;
+  @media (max-width: 600px) {
+    height: 30px;
+    width: 30px;
+  }
 `;

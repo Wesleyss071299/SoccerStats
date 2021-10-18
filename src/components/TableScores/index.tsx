@@ -22,7 +22,11 @@ const TableScores: React.FC<ITableScores> = ({ data }) => {
         <tbody>
           {data.map((time) => (
             <tr key={time.team.id}>
-              <td>{time.stats[8].value}</td>
+              <td>
+                {time.stats
+                  .filter((item) => item.name === "rank")
+                  .map((item) => item.value)}
+              </td>
               <td>{time.team.name}</td>
               <td>{time.stats[0].value}</td>
               <td>{time.stats[1].value}</td>

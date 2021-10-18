@@ -10,13 +10,13 @@ import Loading from "../../components/Loading";
 
 const Home: React.FC = () => {
   const [leagues, setLeagues] = useState<ILeague[]>([]);
-  const { leagueId, fetchTeams, teams, loading } = useStandingContext();
+  const { fetchTeams, teams, loading } = useStandingContext();
 
-  const fetchLeagues = async () => {
+  const fetchLeagues = async() => {
     const response: IResponse = await api.get("/leagues");
     const data: ILeague[] = response.data.data;
     setLeagues(data);
-  };
+  }
 
   useEffect(() => {
     fetchLeagues();
@@ -24,7 +24,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     fetchTeams();
-  }, [leagueId]);
+  }, [fetchTeams]);
 
   return (
     <Container>
@@ -33,7 +33,7 @@ const Home: React.FC = () => {
       </Header>
       <Wrapper>
         <ListLeagues data={leagues} />
-        {loading ? <Loading/> : <TableScores data={teams} />}     
+        {loading ? <Loading /> : <TableScores data={teams} />}
       </Wrapper>
     </Container>
   );

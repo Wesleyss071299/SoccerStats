@@ -5,8 +5,18 @@ export const Container = styled.ul`
   width: 300px;
   overflow: hidden;
   overflow-y: scroll;
-  direction:rtl; 
+  direction: rtl;
   margin-left: 30px;
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: row-reverse;
+    overflow-x: scroll;
+    width: 75%;
+    ::-webkit-scrollbar {
+      width: 1px;
+      height: 1px;
+    }
+  }
   ::-webkit-scrollbar {
     width: 1px;
   }
