@@ -12,11 +12,15 @@ const Home: React.FC = () => {
   const [leagues, setLeagues] = useState<ILeague[]>([]);
   const { fetchTeams, teams, loading } = useStandingContext();
 
-  const fetchLeagues = async() => {
-    const response: IResponse = await api.get("/leagues");
-    const data: ILeague[] = response.data.data;
-    setLeagues(data);
-  }
+  const fetchLeagues = async () => {
+    try {
+      const response: IResponse = await api.get("/leagues");
+      const data: ILeague[] = response.data.data;
+      setLeagues(data);
+    } catch (error) {
+      throw error;
+    }
+  };
 
   useEffect(() => {
     fetchLeagues();
