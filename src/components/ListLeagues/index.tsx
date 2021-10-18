@@ -13,7 +13,7 @@ const ListLeagues: React.FC<IListLeagues> = ({ data }) => {
       {data.map((item) => (
         <LeagueButton
           name={item.name}
-          url={item.logos.light}
+          url={item.logos.dark}
           id={item.id}
           key={item.id}
         />
